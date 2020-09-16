@@ -14,5 +14,9 @@
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "src/app/tests/navigation-test.module.ts",
+    "src/app/constants/*.ts"
   ]
 }

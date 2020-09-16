@@ -1,0 +1,35 @@
+<div class="login-background">
+  <div class="card">
+    <div class="card-header d-flex justify-content-between">
+      <h4 class="mb-0">Login</h4>
+      <button mat-stroked-button (click)="changeLanguage()">{{ language }}</button>
+    </div>
+    <div class="card-body">
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <div class="form-group">
+          <label for="emailInput">Email</label>
+          <input name="email" id="emailInput" class="form-control" type="email" ngModel #email="ngModel" email required
+                 [ngClass]="{ 'is-invalid': email.touched && email.errors }" autofocus/>
+          <div *ngIf="email.errors" class="invalid-feedback">
+            <div *ngIf="email.errors.required">{{ 'Login.Errors.EmailRequired' | translate }}</div>
+            <div *ngIf="email.errors.email">{{ 'Login.Errors.EmailInvalid' | translate }}</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="passwordInput">{{ 'Login.Password' | translate }}</label>
+          <input name="password" id="passwordInput" class="form-control" type="password" ngModel #password="ngModel" required
+                 [ngClass]="{ 'is-invalid': password.touched && password.errors }"/>
+          <div *ngIf="password.errors" class="invalid-feedback">
+            <div *ngIf="password.errors.required">{{ 'Login.Errors.PasswordRequired' | translate }}</div>
+          </div>
+        </div>
+        <div class="form-group buttons-group">
+          <button [disabled]="isLoading$ | async" class="btn btn-primary">
+            <span *ngIf="isLoading$ | async" class="spinner-border spinner-border-sm mr-1"></span>
+            {{ 'Login.LoginLabel' | translate }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="container d-flex justify-content-center" *ngIf="!(isLoading$ | async) else loading">
+  <mat-card class="col-lg-6">
+    <mat-card-header>
+      <h2>{{ 'Records.RecordsLabel' | translate}}</h2>
+    </mat-card-header>
+    <mat-card-content class="d-flex flex-column">
+      <div class="detail-row">
+        <span class="w-150">{{ 'Records.CallId' | translate }}</span>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="" [ngModel]="record.id" [disabled]="true">
+        </mat-form-field>
+      </div>
+      <div class="detail-row">
+        <span class="w-150">{{ 'Records.CallStart' | translate }}</span>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="" [ngModel]="record.startedAt | byType: pipeType.date" [disabled]="true">
+        </mat-form-field>
+      </div>
+      <div class="detail-row">
+        <span class="w-150">{{ 'Records.CallEnded' | translate }}</span>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="" [ngModel]="record.finishedAt | byType: pipeType.date" [disabled]="true">
+        </mat-form-field>
+      </div>
+      <div class="detail-row">
+        <span class="w-150">{{ 'Records.CallDuration' | translate }}</span>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="" [ngModel]="record.duration" [disabled]="true">
+        </mat-form-field>
+      </div>
+      <div class="detail-row">
+        <span class="w-150">{{ 'Records.Contact' | translate }}</span>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="" [ngModel]="record.contactPhone | byType: pipeType.phoneNumber" [disabled]="true">
+        </mat-form-field>
+      </div>
+      <div class="detail-row">
+        <span class="w-150">{{ 'Records.DisplayedNumber' | translate }}</span>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="" [ngModel]="record.displayedNumber | byType: pipeType.phoneNumber" [disabled]="true">
+        </mat-form-field>
+      </div>
+      <div>
+        <span class="w-150">{{ 'Records.WrapupsLabel' | translate }}</span>
+        <div *ngFor="let wrapup of record.wrapups; trackBy: trackByFn" class="px-3 my-2">
+          <mat-card>
+            <mat-card-content>
+              <div class="detail-row">
+                <span class="w-150">{{ 'Records.Wrapups.Wrapup' | translate }}</span>
+                <mat-form-field appearance="legacy">
+                  <input matInput placeholder="" [ngModel]="wrapup.wrapupId" [disabled]="true">
+                </mat-form-field>
+              </div>
+              <div class="detail-row">
+                <span class="w-150">{{ 'Records.Wrapups.Agent' | translate }}</span>
+                <mat-form-field appearance="legacy">
+                  <input matInput placeholder="" [ngModel]="wrapup.agentId" [disabled]="true">
+                </mat-form-field>
+              </div>
+              <div class="detail-row">
+                <span class="w-150">{{ 'Records.Wrapups.Comment' | translate }}</span>
+                <mat-form-field appearance="legacy">
+                  <input matInput placeholder="" [(ngModel)]="wrapup.wrapupComment">
+                </mat-form-field>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-end">
+      <button mat-raised-button (click)="back()">{{ 'Buttons.Cancel' | translate }}</button>
+      <button mat-raised-button color="primary" class="ml-3" (click)="updateRecord(record)">{{ 'Buttons.Save' | translate }}</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<ng-template #loading>
+  <div class="spinner-style">
+     <mat-progress-spinner
+        color="primary"
+        mode="indeterminate">
+     </mat-progress-spinner>
+  </div>
+</ng-template>

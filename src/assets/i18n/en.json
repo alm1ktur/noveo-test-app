@@ -1,0 +1,34 @@
+{
+  "Login": {
+    "LoginLabel": "Login",
+    "Password": "Password",
+    "Errors": {
+      "EmailRequired": "Email is required",
+      "EmailInvalid": "Invalid email address",
+      "PasswordRequired": "Password is required"
+    }
+  },
+  "Records": {
+    "Record": "Record",
+    "CallId": "Call Id",
+    "CallStart": "Call Start",
+    "CallEnded": "Call Ended",
+    "CallDuration": "Call Duration",
+    "Contact": "Contact",
+    "DisplayedNumber": "Displayed Number",
+    "WrapupsLabel": "Wrapups",
+    "Wrapups": {
+      "Wrapup": "Wrapup",
+      "Agent": "Agent",
+      "Comment": "Comment*"
+    },
+    "RecordsLabel": "Records"
+  },
+  "Header": {
+    "Logout": "Logout"
+  },
+  "Buttons": {
+    "Save": "Save",
+    "Cancel": "Cancel"
+  }
+}

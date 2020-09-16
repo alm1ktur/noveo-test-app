@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiDomain: `https://diabolocom-test.herokuapp.com`,
+  locales: ['en', 'ru'],
+  defaultLocale: 'en',
 };
 
 /*

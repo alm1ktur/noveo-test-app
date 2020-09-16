@@ -1,0 +1,23 @@
+<mat-table [dataSource]="records$ | async" class="container" *ngIf="!(isLoading$ | async) else loading">
+  <ng-container *ngFor="let column of columns; trackBy: trackByFn" [matColumnDef]="column.key">
+    <mat-header-cell *matHeaderCellDef>{{ column.header | translate }}</mat-header-cell>
+    <mat-cell *matCellDef="let row">{{ column.cell(row) | byType:column.type }}</mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns" class="detail-row"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;" class="detail-row" (click)="openDetailsPage(row)"></mat-row>
+</mat-table>
+<ng-template #loading>
+  <div *ngIf="isLoading$ | async else noData"
+       class="spinner-style">
+    <mat-progress-spinner
+      color="primary"
+      mode="indeterminate">
+    </mat-progress-spinner>
+  </div>
+</ng-template>
+
+<ng-template #noData>
+  <div class="d-flex justify-content-center">
+    <h3>No data available</h3>
+  </div>
+</ng-template>

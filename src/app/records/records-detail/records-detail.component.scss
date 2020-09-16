@@ -1,0 +1,27 @@
+.detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.w-150 {
+  width: 150px;
+}
+
+:host ::ng-deep .mat-card-header-text {
+  margin: 0;
+}
+.mat-card{
+  display:flex;
+  flex-direction: column;
+  padding: 35px;
+}
+
+.mat-card-header {
+  flex-shrink: 0;
+}
+
+.mat-card-content{
+  flex-grow: 1;
+  overflow: auto;
+}

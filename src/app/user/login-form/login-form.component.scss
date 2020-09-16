@@ -1,0 +1,27 @@
+.login-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.card {
+  width: 270px;
+}
+
+input {
+  width: 224px;
+}
+
+.invalid-feedback {
+  position: absolute;
+}
+
+.buttons-group {
+  padding-top: 10px;
+  margin-bottom: 0;
+}

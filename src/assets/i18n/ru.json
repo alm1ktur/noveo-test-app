@@ -1,0 +1,33 @@
+{
+  "Login": {
+    "LoginLabel": "Вход",
+    "Password": "Пароль",
+    "Errors": {
+      "EmailRequired": "Заполните email",
+      "EmailInvalid": "Неверный формат email",
+      "PasswordRequired": "Заполните пароль"
+    }
+  },
+  "Records": {
+    "CallId": "Номер звонка",
+    "CallStart": "Начало звонка",
+    "CallEnded": "Окончание звонка",
+    "CallDuration": "Время звонка",
+    "Contact": "Контакт",
+    "DisplayedNumber": "Отображаемый номер",
+    "WrapupsLabel": "Сокращения",
+    "Wrapups": {
+      "Wrapup": "Сокращение",
+      "Agent": "Агент",
+      "Comment": "Комментарий*"
+    },
+    "RecordsLabel": "Запись"
+  },
+  "Header": {
+    "Logout": "Выйти"
+  },
+  "Buttons": {
+    "Save": "Сохранить",
+    "Cancel": "Отмена"
+  }
+}

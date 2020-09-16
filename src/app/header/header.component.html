@@ -1,0 +1,9 @@
+<header>
+  <div class="container d-flex justify-content-between">
+    <span routerLink="records" class="cursor-pointer d-flex align-items-center">LOGO</span>
+    <div>
+      <button mat-stroked-button (click)="changeLanguage()" class="mr-4">{{ language }}</button>
+      <span (click)="logout()" class="cursor-pointer">{{ 'Header.Logout' | translate }}</span>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,17 @@
+.content-wrapper {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  padding: 40px 0;
+}
+
+:host ::ng-deep .spinner-style  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  height: 100%;
+}
