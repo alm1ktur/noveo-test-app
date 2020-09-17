@@ -2,6 +2,7 @@
   "Login": {
     "LoginLabel": "Login",
     "Password": "Password",
+    "Email": "Email",
     "Errors": {
       "EmailRequired": "Email is required",
       "EmailInvalid": "Invalid email address",

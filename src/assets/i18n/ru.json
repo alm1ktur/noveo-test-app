@@ -2,9 +2,10 @@
   "Login": {
     "LoginLabel": "Вход",
     "Password": "Пароль",
+    "Email": "Почта",
     "Errors": {
-      "EmailRequired": "Заполните email",
-      "EmailInvalid": "Неверный формат email",
+      "EmailRequired": "Заполните почту",
+      "EmailInvalid": "Неверный формат почты",
       "PasswordRequired": "Заполните пароль"
     }
   },

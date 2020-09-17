@@ -7,7 +7,7 @@
     <div class="card-body">
       <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
         <div class="form-group">
-          <label for="emailInput">Email</label>
+          <label for="emailInput">{{ 'Login.Email' | translate }}</label>
           <input name="email" id="emailInput" class="form-control" type="email" ngModel #email="ngModel" email required
                  [ngClass]="{ 'is-invalid': email.touched && email.errors }" autofocus/>
           <div *ngIf="email.errors" class="invalid-feedback">

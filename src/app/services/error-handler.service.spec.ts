@@ -31,16 +31,39 @@ describe('ErrorHandlerService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should handle error', () => {
+  it('should handle unauthorized error', () => {
     const spyOnDispatch = spyOn(mockStore, 'dispatch');
     const spyOnOpen = spyOn(snackBarService, 'open');
     const error: HttpErrorResponse = new HttpErrorResponse({ status: 401 });
-    service.handleTest(error);
+    service.handle(error);
     expect(spyOnDispatch).toHaveBeenCalledTimes(1);
     expect(spyOnOpen).toHaveBeenCalledTimes(1);
     const error2: HttpErrorResponse = new HttpErrorResponse({ status: 500 });
-    service.handleTest(error2);
-    expect(spyOnDispatch).toHaveBeenCalledTimes(1);
-    expect(spyOnOpen).toHaveBeenCalledTimes(1);
+    service.handle(error2);
+    expect(spyOnDispatch).toHaveBeenCalled();
+    expect(spyOnOpen).toHaveBeenCalled();
+  });
+
+  it('should handle server error', () => {
+    const spyOnOpen = spyOn(snackBarService, 'open');
+    const error: HttpErrorResponse = new HttpErrorResponse({ status: 500 });
+    service.handle(error);
+    expect(spyOnOpen).toHaveBeenCalled();
+  });
+
+  it('should handle bad request error', () => {
+    const spyOnOpen = spyOn(snackBarService, 'open');
+    const error: HttpErrorResponse = new HttpErrorResponse({ status: 404 });
+    service.handle(error);
+    expect(spyOnOpen).toHaveBeenCalled();
+  });
+
+  it('should handle default error', () => {
+    const spyOnDispatch = spyOn(mockStore, 'dispatch');
+    const spyOnOpen = spyOn(snackBarService, 'open');
+    const error: HttpErrorResponse = new HttpErrorResponse({ status: 505 });
+    service.handle(error);
+    expect(spyOnOpen).toHaveBeenCalled();
+    expect(spyOnDispatch).not.toHaveBeenCalled();
   });
 });

@@ -48,7 +48,7 @@ describe('ErrorHandlerInterceptor', () => {
   }));
 
   it('should handle error', fakeAsync(() => {
-    const spy = spyOn(errorHandlerService, 'handleTest');
+    const spy = spyOn(errorHandlerService, 'handle');
     http.get(`${environment.apiDomain}/records`).subscribe(() => throwError('error message'));
     const req = httpMock.expectOne(`${environment.apiDomain}/records`);
     req.flush('error');
