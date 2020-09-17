@@ -7,7 +7,7 @@ import { provideMockStore } from '@ngrx/store/testing';
 import { environment } from '../../environments/environment';
 import { ErrorHandlerService } from '../services/error-handler.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { throwError } from 'rxjs';
+import { of, throwError } from 'rxjs';
 
 describe('ErrorHandlerInterceptor', () => {
   let httpMock: HttpTestingController;
@@ -48,9 +48,10 @@ describe('ErrorHandlerInterceptor', () => {
   }));
 
   it('should handle error', fakeAsync(() => {
-    const spy = spyOn(errorHandlerService, 'handle');
+    const spy = spyOn(errorHandlerService, 'handle').and.returnValue(of(null));
     http.get(`${environment.apiDomain}/records`).subscribe(() => throwError('error message'));
     const req = httpMock.expectOne(`${environment.apiDomain}/records`);
-    req.flush('error');
+    req.flush('error', { status: 401, statusText: 'Unauthorized'});
+    expect(spy).toHaveBeenCalled();
   }));
 });
