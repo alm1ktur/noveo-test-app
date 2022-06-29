@@ -26,4 +26,4 @@ export const isAuthenticated = createSelector(
 export const getToken = createSelector(
   selectUser,
   ( state ) => state.user.token
-)
+);

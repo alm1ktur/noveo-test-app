@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center" *ngIf="!(isLoading$ | async) else loading">
+<div class="container d-flex justify-content-center" *ngIf="(isLoading$ | async) === false else loading">
   <mat-card class="col-lg-6">
     <mat-card-header>
       <h2>{{ 'Records.RecordsLabel' | translate}}</h2>

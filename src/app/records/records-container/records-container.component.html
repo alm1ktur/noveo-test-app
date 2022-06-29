@@ -1,4 +1,4 @@
-<mat-table [dataSource]="records$ | async" class="container" *ngIf="!(isLoading$ | async) else loading">
+<mat-table [dataSource]="records$ | async" class="container" *ngIf="(isLoading$ | async) === false else loading">
   <ng-container *ngFor="let column of columns; trackBy: trackByFn" [matColumnDef]="column.key">
     <mat-header-cell *matHeaderCellDef>{{ column.header | translate }}</mat-header-cell>
     <mat-cell *matCellDef="let row">{{ column.cell(row) | byType:column.type }}</mat-cell>
